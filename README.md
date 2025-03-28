@@ -98,8 +98,8 @@ Na mesma pasta do arquivo docker-compose.yml
 
 - Para compilar e subir os containers 
 
-docker-compose up -d
+``` docker-compose up -d ```
 
 - Para parar o container 
 
-docker-compose down
+``` docker-compose down ```
