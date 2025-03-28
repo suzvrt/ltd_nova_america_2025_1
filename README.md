@@ -107,5 +107,8 @@ Na mesma pasta do arquivo docker-compose.yml
 ## Para acessar todos os containers pelo navegador
 
 localhost:3000 - frontend
+
 localhost:3001 - backend-api
+
 localhost:3002 - backend-authentication
+
