@@ -1,33 +1,47 @@
 version: '3'
 services:
   
-  php-app1:
-    build: ./php-app1
-    container_name: php-app1
+  backend-api:
+    build: ./backend-api
+    container_name: backend-api
+    ports:
+      - "3001:3000"
     volumes:
-      - ./php-app:/usr/src/app
-      - shared-volume:/usr/src/app/in  # Monta o volume no serviço app1
+      - ./backend-api:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - my-network
 
-  php-app2:
-    build: ./php-app2
-    container_name: php-app2
-    depends_on:
-      - kafka
+
+  backend-authentication:
+    build: ./backend-authentication
+    container_name: backend-authentication
+    ports:
+      - "3002:3000"
     volumes:
-      - ./php-app:/usr/src/app
-      - shared-volume:/usr/src/app/in  # Monta o volume no serviço app1
+      - ./backend-authentication:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - my-network
 
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - my-network
+  
 networks:
   my-network:
 
-volumes:
-  shared-volume:
-    driver: local
-    driver_opts:
-      type: none
-      device: in  
-      o: bind
+# volumes:
+#   shared-volume:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: in  
+#       o: bind
