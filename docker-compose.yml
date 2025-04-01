@@ -1,6 +1,16 @@
 version: '3'
 services:
-  
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: nest
+      POSTGRES_PASSWORD: est@ciO_20.25
+      POSTGRES_DB: siscalf
+    ports:
+      - "5432:5432"
+
   backend-api:
     build: ./backend-api
     container_name: backend-api
@@ -11,7 +21,6 @@ services:
       - /usr/src/app/node_modules
     networks:
       - my-network
-
 
   backend-authentication:
     build: ./backend-authentication
