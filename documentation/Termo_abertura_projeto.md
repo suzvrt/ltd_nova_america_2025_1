@@ -3,16 +3,17 @@
 ## Criação de um sistema para controle de presença em sala de aula Curso de Alfabetização de Jovens e Adultos - SISALFA
 
 ### Escopo 
-Criação de
+Criação de um sistema para cadastro de usuários, que permita que o professor e o monitor da turma, caso exista, preencha a presença dos alunos. 
 
-### O que não parte do escopo
-
+### O que não faz parte do escopo
+Gerenciamento de notas, gerenciamento de pagamentos, gerenciamento de transferências, gerenciamento de período acadêmico.
 
 ## Possiveis problemas
 
 - Controle do Professor para criar turma
 - Admin não tem controle para criar turmas
 - Não poderia cadastrar os alunos de acordo com as disciplinas em vez por sala como alternativa?
+- Um usuário pode ter mais de um papel ? Pode ser admin e professor ?
 
 ## Stakeholders
 
