@@ -7,6 +7,13 @@ Criação de
 
 ### O que não parte do escopo
 
+
+## Possiveis problemas
+
+- Controle do Professor para criar turma
+- Admin não tem controle para criar turmas
+- Não poderia cadastrar os alunos de acordo com as disciplinas em vez por sala como alternativa?
+
 ## Stakeholders
 
 - Estácio de Sá 
