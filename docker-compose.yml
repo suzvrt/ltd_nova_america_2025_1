@@ -13,6 +13,10 @@ services:
     networks:
       - my-network
 
+    volumes:
+      - postgres-data:/var/lib/postgresql/data_ltd
+    # - ./database/migrations:/docker-entrypoint-initdb.d 
+
   backend-api:
     build: ./backend-api
     container_name: backend-api
@@ -48,6 +52,9 @@ services:
   
 networks:
   my-network:
+
+volumes:
+  postgres-data:
 
 # volumes:
 #   shared-volume:
