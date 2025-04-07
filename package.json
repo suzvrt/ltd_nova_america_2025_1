@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@nestjs/mongoose": "^11.0.3",
+    "@nestjs/typeorm": "github:nestjs/typeorm",
+    "mongose": "^0.0.2-security",
+    "pg": "^8.14.1",
+    "typeorm": "^0.3.22"
+  }
+}
