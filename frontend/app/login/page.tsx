@@ -1,8 +1,14 @@
+import { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 
 function InputField({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
     return <input className={twMerge(className, "w-full text-md px-5 py-3 bg-[#D9D9D9] text-[#888888] rounded-0")} {...props} />
 }
+
+export const metadata: Metadata = {
+    title: "Login",
+    description: "Login Page",
+};
 
 export default function LoginPage() {
     const onLogin = async (form: FormData) => {
