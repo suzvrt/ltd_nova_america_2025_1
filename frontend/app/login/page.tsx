@@ -13,15 +13,17 @@ export default function LoginPage() {
     }
 
     return (
-        <form 
-            action={onLogin}
-            className="flex flex-col w-full h-full max-w-md gap-y-5 items-center justify-center"
-        >
-            <InputField type="text" name="login" id="login" placeholder="Login" />
-            <InputField type="password" name="senha" id="senha" placeholder="Senha" />
-            <button className="bg-[#333333] text-white px-12 py-2">
-                Login
-            </button>
-        </form>
+        <main className="w-full flex items-center justify-center mt-50">
+            <form
+                action={onLogin}
+                className="flex flex-col w-full h-full max-w-md gap-y-5 items-center justify-center"
+            >
+                <InputField type="text" name="login" id="login" placeholder="Login" />
+                <InputField type="password" name="senha" id="senha" placeholder="Senha" />
+                <button className="bg-[#333333] text-white px-12 py-2">
+                    Login
+                </button>
+            </form>
+        </main>
     );
 }
