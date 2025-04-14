@@ -20,6 +20,10 @@ services:
   backend-api:
     build: ./backend-api
     container_name: backend-api
+    environment:
+      DATABASE_HOST: postgres
+    depends_on:
+      - postgres
     ports:
       - "3001:3000"
     volumes:
@@ -31,6 +35,8 @@ services:
   backend-authentication:
     build: ./backend-authentication
     container_name: backend-authentication
+    depends_on:
+      - postgres
     ports:
       - "3002:3000"
     volumes:
@@ -42,6 +48,9 @@ services:
   frontend:
     build: ./frontend
     container_name: frontend
+    depends_on:
+      - backend-api
+      - backend-authentication
     ports:
       - "3000:3000"
     volumes:
