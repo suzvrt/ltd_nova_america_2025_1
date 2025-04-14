@@ -1,16 +1,22 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
+import { Inject } from '@nestjs/common';
+import { Role } from 'src/enums/roles.enum';
 
 @Injectable()
-export class UsersService {
+export class UsersService implements OnModuleInit{
   constructor(
-    @InjectRepository(User)
+    @Inject('USER_REPOSITORY')
     private userRepository: Repository<User>,
   ) {}
+
+  async onModuleInit() {
+    const user = await this.createExampleUser();
+    console.log('Created user:', user);
+  }
 
   async create(data: CreateUserDto): Promise<User> {
     const user = this.userRepository.create(data);
@@ -34,6 +40,8 @@ export class UsersService {
       name: 'Example User',
       email: 'example@example.com',
       password: 'Password123',
+      role: Role.STUDENT,
+      is_active: true,
     };
     const user = this.userRepository.create(exampleUser);
     return this.userRepository.save(user);
