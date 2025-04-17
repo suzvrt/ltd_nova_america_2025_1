@@ -8,9 +8,9 @@ export const databaseProviders = [
         type: 'postgres',
         host: process.env.DATABASE_HOST || 'localhost',
         port: 5432,
-        username: 'nest',
-        password: 'est@ciO_20.25',
-        database: 'siscalf',
+        username: process.env.API_PG_USER,
+        password: process.env.API_PG_PASS,
+        database: process.env.API_PG_DB,
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: true,
       });
