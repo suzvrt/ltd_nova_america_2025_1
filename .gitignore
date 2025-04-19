@@ -2,3 +2,6 @@ README.html
 README_files
 node_modules
 *.lock
+
+*_site
+*.quarto
