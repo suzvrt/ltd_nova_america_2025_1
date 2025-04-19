@@ -1,10 +1,7 @@
-import { FetchError } from "@/lib/errors/endpoint";
+import { FetchError, InvalidMethodError } from "@/lib/errors/endpoint";
 
-type AllowedMethod =
-  | "GET"
-  | "POST"
-  | "PATCH"
-  | "DELETE"
+const ALLOWED_METHODS = ["GET", "POST", "PATCH", "DELETE"] as const;
+type AllowedMethod = typeof ALLOWED_METHODS[number];
 
 type FetchProps<T extends {} = {}> = {
   url: string,
@@ -14,8 +11,14 @@ type FetchProps<T extends {} = {}> = {
 
 type FetchMethodProps<T extends {} = {}> = Omit<FetchProps<T>, "method">;
 
-function unifiedFetch<T extends {} = {}>({ url, method, data }: FetchProps<T>) {
-  console.log({ url, method, data });
+async function unifiedFetch<T extends {} = {}>({ url, method, data }: FetchProps<T>) {
+  if (!ALLOWED_METHODS.includes(method)) {
+    return {
+      name: "InvalidMethodError",
+      given: method,
+      message: `Expected one of [${ALLOWED_METHODS.join(', ')}], got ${method}`
+    } satisfies InvalidMethodError;
+  }
 
   return fetch(url, {
     body: JSON.stringify(data ?? {}),
