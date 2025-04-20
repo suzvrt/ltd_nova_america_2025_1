@@ -11,7 +11,7 @@ type FetchProps<T extends {} = {}> = {
 
 type FetchMethodProps<T extends {} = {}> = Omit<FetchProps<T>, "method">;
 
-async function unifiedFetch<T extends {} = {}>({ url, method, data }: FetchProps<T>) {
+async function unifiedFetch<T extends {} = {}>({ url, method, data, ...props }: FetchProps<T> & RequestInit) {
   if (!ALLOWED_METHODS.includes(method)) {
     return {
       name: "InvalidMethodError",
@@ -23,11 +23,12 @@ async function unifiedFetch<T extends {} = {}>({ url, method, data }: FetchProps
   return fetch(url, {
     body: JSON.stringify(data ?? {}),
     method: method.toUpperCase(),
+    ...props,
   })
     .catch((reason) => {
       return {
         name: "FetchError",
-        message: `Could not fetch from resource ${url} using the method ${method}`,
+        message: `Could not fetch from resource '${url}' using the method '${method}'`,
         reason,
       } satisfies FetchError;
     })
@@ -50,4 +51,4 @@ export function del<T extends {} = {}>(props: FetchMethodProps<T>) {
   return unifiedFetch({ method: "DELETE", ...props });
 }
 
-export const Endpoint = { get, post, patch, del };
+export const Endpoint = { get, post, patch, del, fetch: unifiedFetch };
