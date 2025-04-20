@@ -1,3 +1,12 @@
+---
+# title: "Termo de Abertura do projeto"
+# format: pptx
+format: pdf
+title-block: false
+---
+
+![](../../ltd_estacio_na/ltd_website/logo/logo_ltd.png)
+
 #  Termo de Abertura do projeto
 
 ## Criação de um sistema para controle de presença em sala de aula Curso de Alfabetização de Jovens e Adultos - SISALFA
@@ -32,4 +41,5 @@ Gerenciamento de notas, gerenciamento de pagamentos, gerenciamento de transferê
 
 # Bibliografia 
 - https://www.cge.pr.gov.br/sites/default/arquivos_restritos/files/documento/2021-06/manual_implementacao_lgpd.pdf (LGPD)
+
 
