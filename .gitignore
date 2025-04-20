@@ -3,3 +3,7 @@ README_files
 node_modules
 .env
 *.lock
+*_site
+*.quarto
+*Termo_abertura_projeto_files*
+

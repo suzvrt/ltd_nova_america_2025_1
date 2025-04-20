@@ -1,0 +1,164 @@
+---
+# title: "Termo de Abertura do projeto"
+# format: pptx
+format: pdf
+title-block: false
+---
+
+![](../../ltd_estacio_na/ltd_website/logo/logo_ltd.png)
+
+# Escopo de Software  
+**Sistema Web para Marcação de Presença — Projeto de Alfabetização Estácio**
+
+
+## **Descrição Geral**
+
+O objetivo deste projeto é desenvolver um sistema web simples, eficiente e seguro para marcação de presença dos alunos das turmas vinculadas ao **Projeto de Alfabetização de Jovens e Adultos da Universidade Estácio de Sá**.  
+
+O sistema será utilizado por **professores** e **monitores**, permitindo o registro e acompanhamento da frequência dos alunos de forma digital e organizada.
+
+
+## **Público-alvo**
+
+- Professores vinculados ao projeto de alfabetização.
+- Monitores de apoio pedagógico.
+- Coordenadores institucionais (para fins administrativos).
+
+**Nota:** Os alunos não terão acesso direto ao sistema.
+
+##  **Funcionalidades**
+
+### **Gestão de Usuários**
+- Cadastro de usuários do sistema: Professor, Monitor, Coordenador.
+- Associações:
+  - Cada usuário está vinculado a uma **instituição** e a uma ou mais **turmas**.
+  - Permissão para cadastrar, editar e visualizar informações dos alunos.
+
+
+### **Gestão de Alunos**
+- Cadastro de alunos (nome, CPF, matrícula, turma e observações pedagógicas).
+- Edição e remoção de dados.
+- Consulta e filtro por turma, nome ou matrícula.
+
+
+### **Gestão de Turmas**
+- Cadastro de turmas vinculadas a uma instituição.
+- Associação de alunos a turmas.
+- Associação de professores/monitores a turmas.
+
+
+### **Registro de Presença**
+- Tela de **marcação de presença diária**.
+- Interface simples para exibição da lista de alunos da turma.
+- Marcação manual (presente / ausente) por:
+  - Professor.
+  - Monitor.
+
+- Validação de data, evitando registros duplicados para o mesmo aluno/turma/data.
+- Edição de registros de presença já salvos, com histórico de alterações.
+
+
+### **Relatórios**
+- Geração de relatório de frequência por:
+  - Turma.
+  - Aluno.
+  - Período.
+  - Professor / Monitor.
+
+- Exportação dos relatórios em PDF ou CSV.
+
+
+### **Segurança**
+- Login com autenticação.
+- Controle de permissões baseado no perfil:
+  - Professores e Monitores: podem marcar presença, cadastrar e visualizar alunos.
+  - Coordenadores: podem visualizar todos os dados e relatórios.
+  - Alunos: **não têm acesso** ao sistema.
+
+
+### **Design**
+- Interface responsiva (desktop, tablet e celular).
+- Navegação simples e intuitiva, considerando a rotina de sala de aula.
+- Compatibilidade com navegadores modernos.
+
+## **Benefícios Esperados**
+- Organização digital do controle de presença.
+- Redução de erros e retrabalho com planilhas manuais.
+- Facilidade de consulta e auditoria da frequência.
+- Apoio ao acompanhamento pedagógico do Projeto de Alfabetização.
+
+
+## **Tecnologias Sugeridas**
+- **Frontend:** React, Vue ou equivalente.
+- **Backend:** Node.js, Django ou Laravel.
+- **Banco de Dados:** PostgreSQL ou MySQL.
+- **Hospedagem:** AWS, Heroku ou infraestrutura Estácio.
+- **Controle de Acesso:** JWT + criptografia de senha.
+
+## **Próximos Passos**
+- Confirmação das regras de negócios.
+- Desenvolvimento do protótipo de interface.
+- Início do desenvolvimento incremental.
+
+
+# Levantamento de Requisitos  
+
+## **Descrição do Sistema**
+
+O sistema será uma plataforma web que permitirá o controle de presença dos alunos matriculados nas turmas do projeto de alfabetização da Estácio. Professores e monitores poderão registrar a presença diária dos estudantes, enquanto coordenadores poderão consultar relatórios para fins administrativos e pedagógicos.
+
+
+## **Requisitos Funcionais (RF)**
+
+| Código | Descrição |
+|--------|-----------|
+| RF001  | O sistema deve permitir o cadastro de usuários com perfis: Professor, Monitor e Coordenador. |
+| RF002  | O sistema deve permitir associar cada usuário a uma instituição e a uma ou mais turmas. |
+| RF003  | O sistema deve permitir o cadastro, edição e exclusão de turmas. |
+| RF004  | O sistema deve permitir o cadastro, edição e exclusão de alunos, vinculando-os a uma turma. |
+| RF005  | O sistema deve permitir a marcação de presença dos alunos por parte de professores e monitores. |
+| RF006  | O sistema deve impedir a duplicação de registros de presença para o mesmo aluno, na mesma data e turma. |
+| RF007  | O sistema deve permitir a edição de registros de presença, com histórico de alterações. |
+| RF008  | O sistema deve gerar relatórios de presença filtrados por turma, aluno e período. |
+| RF009  | O sistema deve permitir exportar relatórios em PDF e CSV. |
+| RF010  | O sistema deve permitir o login de usuários com autenticação segura. |
+| RF011  | O sistema deve controlar permissões de acesso com base no perfil do usuário. |
+| RF012  | O sistema não deve permitir que alunos acessem ou editem seus próprios registros de presença. |
+| RF013  | O sistema deve exibir uma interface clara e simples para marcação de presença, com lista de alunos organizada por turma. |
+
+
+## **Requisitos Não Funcionais (RNF)**
+
+| Código | Descrição |
+|--------|-----------|
+| RNF001 | O sistema deve ser acessível via navegador (web-based) e responsivo (desktop, tablet e celular). |
+| RNF002 | O sistema deve garantir a segurança das informações, com criptografia de senhas e controle de sessão. |
+| RNF003 | O sistema deve registrar logs de acesso e alterações em registros de presença. |
+| RNF004 | O sistema deve ser compatível com navegadores modernos: Chrome, Firefox, Edge e Safari. |
+| RNF005 | O tempo de resposta das operações (marcações e consultas) não deve exceder 2 segundos em condições normais de uso. |
+| RNF006 | O sistema deve estar em conformidade com as normas de proteção de dados aplicáveis (LGPD). |
+
+
+## **Regras de Negócio (RN)**
+
+| Código | Descrição |
+|--------|-----------|
+| RN001  | Apenas Professores, Monitores e Coordenadores podem acessar o sistema. |
+| RN002  | Professores e Monitores podem marcar e editar a presença de alunos apenas das turmas às quais estão associados. |
+| RN003  | Coordenadores podem visualizar e exportar relatórios de todas as turmas da instituição. |
+| RN004  | O aluno não tem acesso ao sistema. A presença é controlada exclusivamente pelos professores e monitores. |
+| RN005  | Uma presença não pode ser registrada retroativamente para datas anteriores à data de início da turma. |
+| RN006  | Alterações em registros de presença devem manter o histórico, incluindo usuário responsável e timestamp. |
+
+
+## **Restrições**
+
+- Apenas usuários autenticados podem acessar o sistema.
+- Presenças devem ser registradas diariamente e não podem ser duplicadas.
+- O sistema deve manter rastreabilidade das alterações feitas.
+
+
+## **Considerações Finais**
+
+Este levantamento inicial será revisado e detalhado em conjunto com a professora Rosane e demais membros do projeto, a fim de garantir que todas as necessidades pedagógicas e operacionais estejam contempladas antes do início do desenvolvimento.
+
