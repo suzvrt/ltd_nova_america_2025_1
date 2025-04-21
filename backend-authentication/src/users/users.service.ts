@@ -42,7 +42,7 @@ export class UsersService implements OnModuleInit {
       name: 'Example User',
       email: 'example@example.com',
       password: 'Password123',
-      role: Role.STUDENT,
+      role: Role.ADMIN,
       is_active: true,
     };
     const user = this.userRepository.create(exampleUser);

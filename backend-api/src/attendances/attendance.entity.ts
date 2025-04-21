@@ -1,24 +1,37 @@
-import { Entity, Column, JoinColumn, PrimaryColumn, OneToOne } from 'typeorm';
-
-import { Class } from '../classes/class.entity';
+import {
+  Entity,
+  Column,
+  JoinColumn,
+  ManyToOne,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { ClassDay } from '../class-days/class-day.entity';
+import { Student } from '../students/student.entity';
 import { AttendanceStatus } from '../enums/attendance-status.enum';
 
 @Entity()
 export class Attendance {
-  @PrimaryColumn()
-  student: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-  @PrimaryColumn()
-  @OneToOne(() => Class, (cls) => cls.attendances)
-  @JoinColumn({ name: 'class_id' })
-  class: string;
+  @ManyToOne(() => Student)
+  @JoinColumn({ name: 'student_cpf', referencedColumnName: 'cpf' })
+  student: Student;
 
-  @Column()
-  teacher: number;
-
-  @Column()
-  date: Date;
+  @ManyToOne(() => ClassDay)
+  @JoinColumn({ name: 'class_day_id', referencedColumnName: 'id' })
+  class_day: ClassDay;
 
   @Column()
+  responsible_id: number;
+
+  @UpdateDateColumn()
+  modified_at: Date;
+
+  @Column({
+    type: 'enum',
+    enum: AttendanceStatus,
+  })
   status: AttendanceStatus;
 }
