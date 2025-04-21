@@ -36,7 +36,6 @@ export class UnitsController {
   @Patch()
   @ApiOperation({ summary: 'Atualiza uma unidade' })
   @ApiQuery({ name: 'id', required: true, type: String })
-  @ApiQuery({ name: 'updateUnitDto', required: true, type: UpdateUnitDto })
   update(@Query('id') id: string, @Body() updateUnitDto: UpdateUnitDto) {
     return this.unitsService.update(+id, updateUnitDto);
   }

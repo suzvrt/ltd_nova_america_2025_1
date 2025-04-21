@@ -35,11 +35,6 @@ export class StudentsController {
   @Patch()
   @ApiOperation({ summary: 'Atualiza um aluno' })
   @ApiQuery({ name: 'id', required: true, type: String })
-  @ApiQuery({
-    name: 'updateStudentDto',
-    required: true,
-    type: UpdateStudentDto,
-  })
   update(@Query('id') id: string, @Body() updateStudentDto: UpdateStudentDto) {
     return this.studentsService.update(+id, updateStudentDto);
   }
