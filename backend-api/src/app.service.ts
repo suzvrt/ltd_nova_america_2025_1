@@ -5,6 +5,6 @@ export class AppService {
   constructor() {}
 
   getHello(): string {
-    return 'Hello World! backend-api';
+    return `Hello World! <a href="/api">Clique aqui para acessar o Swagger do backend-api</a>`;
   }
 }
