@@ -11,25 +11,20 @@ import { ClassGroupsService } from './class-groups.service';
 import { CreateClassGroupDto } from './dto/create-class-group.dto';
 import { UpdateClassGroupDto } from './dto/update-class-group.dto';
 import { ApiOperation, ApiQuery } from '@nestjs/swagger';
+import { API_MESSAGES } from '../app.messages';
 
 @Controller('class-groups')
 export class ClassGroupsController {
   constructor(private readonly classGroupsService: ClassGroupsService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Cria uma turma' })
+  @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.CREATE })
   create(@Body() createClassGroupDto: CreateClassGroupDto) {
     return this.classGroupsService.create(createClassGroupDto);
   }
 
   @Get()
-  @ApiOperation({ summary: 'Retorna todas as turmas' })
-  findAll() {
-    return this.classGroupsService.findAll();
-  }
-
-  @Get()
-  @ApiOperation({ summary: 'Retorna todas as turmas ou a turma especificada' })
+  @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.GET_ALL })
   @ApiQuery({ name: 'id', required: false, type: String })
   find(@Query('id') id: string) {
     if (id) {
@@ -39,7 +34,7 @@ export class ClassGroupsController {
   }
 
   @Patch()
-  @ApiOperation({ summary: 'Atualiza uma turma' })
+  @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.UPDATE })
   @ApiQuery({ name: 'id', required: true, type: String })
   update(
     @Query('id') id: string,
@@ -49,7 +44,7 @@ export class ClassGroupsController {
   }
 
   @Delete()
-  @ApiOperation({ summary: 'Deleta uma turma' })
+  @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.DELETE })
   @ApiQuery({ name: 'id', required: true, type: String })
   remove(@Query('id') id: string) {
     return this.classGroupsService.remove(+id);
