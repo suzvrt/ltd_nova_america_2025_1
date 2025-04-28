@@ -29,10 +29,10 @@ export class UsersService implements OnModuleInit {
     return this.userRepository.find();
   }
 
-  async findOne(id: number): Promise<User> {
-    const user = await this.userRepository.findOneBy({ id });
+  async findOne(email: string): Promise<User> {
+    const user = await this.userRepository.findOneBy({ email });
     if (!user) {
-      throw new Error(`User with id ${id} not found`);
+      throw new Error(`Usuário não encontrado`);
     }
     return user;
   }
