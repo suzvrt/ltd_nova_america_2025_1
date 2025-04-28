@@ -1,0 +1,27 @@
+NA tela de presençao 
+
+Ao cadastrar o aluno, atribuir unidade, e numero do módulo,
+
+o presença a lista será por ordem alfabética e além do nome vai exibir o numero do módulo.
+
+Menção ao instituto YDUS
+
+
+Se a turma tiver alunos de mais de um modulo, vai aparecer o botao adicionar conteudo de modulo, até o máximo de módulos. O sistema vai permitir 
+a adiccoa dem módulos até máximo.
+
+botao adicionar
+
+O campo encontro, numero do encontro
+modulo 02 
+conteudo texto livre
+arquivo de planejamento.
+
+
+
+O campo encontro, numero do encontro
+modulo 01 
+conteudo texto livre
+arquivo 
+
+
