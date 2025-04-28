@@ -41,7 +41,7 @@ export class UsersService implements OnModuleInit {
     const exampleUser: CreateUserDto = {
       name: 'Example User',
       email: 'example@example.com',
-      password: 'Password123',
+      password: 'P@ssw0rd123',
       role: Role.ADMIN,
       is_active: true,
     };
