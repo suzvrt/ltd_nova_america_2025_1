@@ -25,7 +25,7 @@ export class ClassGroupsController {
 
   @Get()
   @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.GET_ALL })
-  @ApiQuery({ name: 'id', required: false, type: String })
+  @ApiQuery({ name: 'id', required: false, type: String, description: API_MESSAGES.PARAMETERS.CLASS_GROUP_ID })
   find(@Query('id') id: string) {
     if (id) {
       return this.classGroupsService.findOne(+id);
@@ -35,7 +35,7 @@ export class ClassGroupsController {
 
   @Patch()
   @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.UPDATE })
-  @ApiQuery({ name: 'id', required: true, type: String })
+  @ApiQuery({ name: 'id', required: true, type: String, description: API_MESSAGES.PARAMETERS.CLASS_GROUP_ID })
   update(
     @Query('id') id: string,
     @Body() updateClassGroupDto: UpdateClassGroupDto,
@@ -45,7 +45,7 @@ export class ClassGroupsController {
 
   @Delete()
   @ApiOperation({ summary: API_MESSAGES.CONTROLLER.CLASS_GROUPS.DELETE })
-  @ApiQuery({ name: 'id', required: true, type: String })
+  @ApiQuery({ name: 'id', required: true, type: String, description: API_MESSAGES.PARAMETERS.CLASS_GROUP_ID })
   remove(@Query('id') id: string) {
     return this.classGroupsService.remove(+id);
   }

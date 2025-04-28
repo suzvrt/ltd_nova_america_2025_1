@@ -25,7 +25,7 @@ export class StudentsController {
 
   @Get()
   @ApiOperation({ summary: API_MESSAGES.CONTROLLER.STUDENTS.GET_ALL })
-  @ApiQuery({ name: 'cpf', required: false, type: String, description: 'CPF do aluno' })
+  @ApiQuery({ name: 'cpf', required: false, type: String, description: API_MESSAGES.PARAMETERS.CPF })
   find(@Query('cpf') cpf: string) {
     if (cpf) {
       return this.studentsService.findOne(+cpf);
@@ -35,15 +35,15 @@ export class StudentsController {
 
   @Patch()
   @ApiOperation({ summary: API_MESSAGES.CONTROLLER.STUDENTS.UPDATE })
-  @ApiQuery({ name: 'id', required: true, type: String })
-  update(@Query('id') id: string, @Body() updateStudentDto: UpdateStudentDto) {
-    return this.studentsService.update(+id, updateStudentDto);
+  @ApiQuery({ name: 'cpf', required: true, type: String, description: API_MESSAGES.PARAMETERS.CPF })
+  update(@Query('cpf') cpf: string, @Body() updateStudentDto: UpdateStudentDto) {
+    return this.studentsService.update(+cpf, updateStudentDto);
   }
 
   @Delete()
   @ApiOperation({ summary: API_MESSAGES.CONTROLLER.STUDENTS.DELETE })
-  @ApiQuery({ name: 'id', required: true, type: String })
-  remove(@Query('id') id: string) {
-    return this.studentsService.remove(+id);
+  @ApiQuery({ name: 'cpf', required: true, type: String, description: API_MESSAGES.PARAMETERS.CPF })
+  remove(@Query('cpf') cpf: string) {
+    return this.studentsService.remove(+cpf);
   }
 }

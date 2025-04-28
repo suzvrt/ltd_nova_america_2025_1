@@ -16,13 +16,12 @@ export const API_MESSAGES = {
     VERSION: '1.0',
   },
   PARAMETERS: {
-    ID: 'ID da turma',
-    NAME: 'Nome da turma',
+    CLASS_GROUP_ID: 'ID da turma',
     UNIT_ID: 'ID da unidade',
     START_DATE: 'Data de início da turma',
     END_DATE: 'Data de término da turma',
     CPF: 'CPF do aluno',
-    CLASS_DAY: 'ID da aula',
+    CLASS_DAY_ID: 'ID da aula',
   },
   CONTROLLER: {
     CLASS_GROUPS: {
